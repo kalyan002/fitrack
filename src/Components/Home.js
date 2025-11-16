@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./Home.css";
 import {
   FaDumbbell,
-  FaChartLine,
   FaHeartbeat,
   FaAppleAlt,
   FaStar,
@@ -11,7 +10,6 @@ import {
   FaBullseye,
   FaMedal,
   FaCrown,
-  FaCheckCircle,
 } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
