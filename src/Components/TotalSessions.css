@@ -1,0 +1,41 @@
+.total-sessions-card {
+  width: 350px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(16, 24, 40, 0.08);
+  border: 1px solid rgba(16, 24, 40, 0.08);
+}
+
+.session-title {
+  font-size: 22px;
+  color: #111827;
+  margin-bottom: 20px;
+  letter-spacing: 0.2px;
+}
+
+.session-circle {
+  width: 140px;
+  height: 140px;
+  margin: auto;
+  background: #0b84ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(11, 132, 255, 0.18);
+}
+
+.session-number {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.session-desc {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #374151;
+}
