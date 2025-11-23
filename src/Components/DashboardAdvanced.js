@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState,} from "react";
 import { useNavigate } from "react-router-dom";
 import {
   FaBars,
@@ -32,12 +32,20 @@ export default function DashboardAdvanced() {
   const scheduleEntries = JSON.parse(localStorage.getItem("scheduleEntries")) || [];
 
   // simple user
-  const user = JSON.parse(localStorage.getItem("user")) || { name: "Pavan", avatar: "" };
+  const user = JSON.parse(localStorage.getItem("user")) || {
+    name: "Pavan",
+    avatar: "",
+  };
 
   // compute today's calories (sum of entries with today date)
   const todayDateIso = new Date().toISOString().slice(0, 10);
-  const todaysDiet = dietEntries.filter((d) => (d.time || "").slice(0, 10) === todayDateIso);
-  const totalCaloriesToday = todaysDiet.reduce((s, e) => s + Number(e.calories || 0), 0);
+  const todaysDiet = dietEntries.filter(
+    (d) => (d.time || "").slice(0, 10) === todayDateIso
+  );
+  const totalCaloriesToday = todaysDiet.reduce(
+    (s, e) => s + Number(e.calories || 0),
+    0
+  );
 
   // calorie goal (configurable)
   const calorieGoal = 2200;
@@ -52,9 +60,9 @@ export default function DashboardAdvanced() {
     [totalCaloriesToday, calorieGoal]
   );
 
-  const COLORS = ["#0b84ff", "#e6eefc"];
+  const COLORS = ["#ff0000", "#1a1a1a"]; // red + black
 
-  // sample weight data (combine local weight data if you have it, fallback to demo)
+  // sample weight data
   const weightData = JSON.parse(localStorage.getItem("weightData")) || [
     { month: "Jan", weight: 80 },
     { month: "Feb", weight: 79 },
@@ -66,34 +74,28 @@ export default function DashboardAdvanced() {
 
   // goal progress example: lose 5kg from baseline 80 -> target 75
   const goal = { label: "Lose 5kg", start: 80, target: 75 };
-  // compute progress as % towards target (start -> target)
-  const currentWeight = weightData.length ? weightData[weightData.length - 1].weight : goal.start;
+  const currentWeight = weightData.length
+    ? weightData[weightData.length - 1].weight
+    : goal.start;
+
   const goalTotal = Math.abs(goal.start - goal.target);
   const goalReached = Math.abs(goal.start - currentWeight);
-  const goalProgress = goalTotal === 0 ? 100 : Math.min(100, Math.round((goalReached / goalTotal) * 100));
+  const goalProgress =
+    goalTotal === 0
+      ? 100
+      : Math.min(100, Math.round((goalReached / goalTotal) * 100));
 
-  // reactive counts for header/summary
   const workoutsCount = workoutEntries.length;
   const dietCount = dietEntries.length;
   const scheduleCount = scheduleEntries.length;
 
-  // refresh when localStorage changes from other tabs (optional)
-  useEffect(() => {
-    const onStorage = () => {
-      // force update by reading localStorage and setting nothing; for simplicity use location.reload? Instead we'll no-op because we already re-read on render
-      // but to make the UI reactive across tabs we'd keep a state; for now rely on renders when navigated back/added.
-    };
-    window.addEventListener("storage", onStorage);
-    return () => window.removeEventListener("storage", onStorage);
-  }, []);
-
   return (
     <div className={`adv-root ${sidebarOpen ? "sidebar-open" : "sidebar-closed"}`}>
-      {/* Sliding Sidebar */}
+      {/* Sidebar */}
       <aside className="adv-sidebar">
         <div className="sidebar-top">
           <div className="brand" onClick={() => navigate("/")}>FitTrack</div>
-          <button className="sidebar-close" onClick={() => setSidebarOpen(false)} aria-label="Close sidebar">
+          <button className="sidebar-close" onClick={() => setSidebarOpen(false)}>
             <FaTimes />
           </button>
         </div>
@@ -111,10 +113,15 @@ export default function DashboardAdvanced() {
         </div>
 
         <nav className="sidebar-nav">
-          <button onClick={() => navigate("/dashboard")} className="nav-btn">Overview</button>
-          <button onClick={() => navigate("/workout/new")} className="nav-btn">Start Workout</button>
-          <button onClick={() => navigate("/profile")} className="nav-btn">Profile</button>
-          <button onClick={() => navigate("/settings")} className="nav-btn">Settings</button>
+          <button onClick={() => navigate("/workout/new")} className="nav-btn">
+            Start Workout
+          </button>
+          <button onClick={() => navigate("/profile")} className="nav-btn">
+            Profile
+          </button>
+          <button onClick={() => navigate("/settings")} className="nav-btn">
+            Settings
+          </button>
         </nav>
 
         <div className="sidebar-footer">
@@ -125,7 +132,7 @@ export default function DashboardAdvanced() {
       {/* Top navbar */}
       <header className="adv-header">
         <div className="left">
-          <button className="hamburger" onClick={() => setSidebarOpen(true)} aria-label="Open sidebar">
+          <button className="hamburger" onClick={() => setSidebarOpen(true)}>
             <FaBars />
           </button>
           <h2 className="page-title">Dashboard</h2>
@@ -147,9 +154,10 @@ export default function DashboardAdvanced() {
         </div>
       </header>
 
+      {/* Main */}
       <main className="adv-main">
-        {/* Top area: calorie donut + weight line */}
         <section className="top-row">
+          {/* Calorie Donut */}
           <div className="card donut-card">
             <h4>Calories Today</h4>
             <div className="donut-wrap">
@@ -162,8 +170,6 @@ export default function DashboardAdvanced() {
                     outerRadius={72}
                     startAngle={90}
                     endAngle={-270}
-                    paddingAngle={2}
-                    isAnimationActive={false}
                   >
                     {pieData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -177,15 +183,17 @@ export default function DashboardAdvanced() {
                 <div className="donut-sub">goal {calorieGoal} kcal</div>
               </div>
             </div>
+
             <div className="donut-note">
               {totalCaloriesToday >= calorieGoal ? (
-                <span className="alert">You've reached or exceeded your goal</span>
+                <span className="alert">Goal reached!</span>
               ) : (
                 <span>{caloriesLeft} kcal left</span>
               )}
             </div>
           </div>
 
+          {/* Weight Chart */}
           <div className="card chart-card">
             <h4>Weight Progress</h4>
             <div style={{ width: "100%", height: 180 }}>
@@ -195,7 +203,7 @@ export default function DashboardAdvanced() {
                   <XAxis dataKey="month" />
                   <YAxis />
                   <Tooltip />
-                  <Line type="monotone" dataKey="weight" stroke="#0b84ff" strokeWidth={2} dot />
+                  <Line type="monotone" dataKey="weight" stroke="#ff0000" strokeWidth={2} />
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -203,66 +211,80 @@ export default function DashboardAdvanced() {
           </div>
         </section>
 
-        {/* Middle row: 3 cards and goal progress */}
+        {/* Middle Row */}
         <section className="middle-row">
+          {/* Workout */}
           <div className="card small-card">
-            <div className="card-head"><FaDumbbell className="icon" /><div>Workout</div></div>
+            <div className="card-head">
+              <FaDumbbell className="icon" />
+              <div>Workout</div>
+            </div>
             <div className="card-body">
-              <div
-                className="big-num"
-                style={{ cursor: "pointer" }}
-                role="button"
-                tabIndex={0}
-                onClick={() => navigate("/totalsessions")}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") navigate("/totalsessions");
-                }}
-                aria-label={`Open total sessions (${workoutsCount})`}
-              >
-                {workoutsCount}
-              </div>
+              <div className="big-num">{workoutsCount}</div>
               <div className="muted">Total sessions</div>
               <div className="actions-row">
-                <button className="btn" onClick={() => navigate("/workout/new")}>Start</button>
-                <button className="btn ghost" onClick={() => navigate("/workout/new#workout")}>Open</button>
+                <button className="btn" onClick={() => navigate("/workout/new")}>
+                  Start
+                </button>
+                <button className="btn ghost" onClick={() => navigate("/totalsessions")}>
+                  Open
+                </button>
               </div>
             </div>
           </div>
 
+          {/* Diet */}
           <div className="card small-card">
-            <div className="card-head"><FaAppleAlt className="icon" /><div>Food / Diet</div></div>
+            <div className="card-head">
+              <FaAppleAlt className="icon" />
+              <div>Food / Diet</div>
+            </div>
             <div className="card-body">
               <div className="big-num">{dietCount}</div>
               <div className="muted">Meals logged</div>
               <div className="actions-row">
-                <button className="btn" onClick={() => navigate("/workout/new#diet")}>Log</button>
-                <button className="btn ghost" onClick={() => navigate("/workout/new")}>Open</button>
+                <button className="btn" onClick={() => navigate("/workout/new#diet")}>
+                  Log
+                </button>
+                <button className="btn ghost" onClick={() => navigate("/workout/new")}>
+                  Open
+                </button>
               </div>
             </div>
           </div>
 
+          {/* Schedule */}
           <div className="card small-card">
-            <div className="card-head"><FaCalendarAlt className="icon" /><div>Schedule</div></div>
+            <div className="card-head">
+              <FaCalendarAlt className="icon" />
+              <div>Schedule</div>
+            </div>
             <div className="card-body">
               <div className="big-num">{scheduleCount}</div>
               <div className="muted">Upcoming events</div>
               <div className="actions-row">
-                <button className="btn" onClick={() => navigate("/workout/new#schedule")}>Add</button>
-                <button className="btn ghost" onClick={() => navigate("/workout/new")}>Open</button>
+                <button className="btn" onClick={() => navigate("/workout/new#schedule")}>
+                  Add
+                </button>
+                <button className="btn ghost" onClick={() => navigate("/workout/new")}>
+                  Open
+                </button>
               </div>
             </div>
           </div>
 
-          {/* goal progress */}
+          {/* Goal Progress */}
           <div className="card goal-card">
             <div className="goal-head">
               <div>
                 <div className="muted">Goal</div>
                 <div className="goal-title">{goal.label}</div>
               </div>
+
               <div className="goal-numbers">
                 <div className="muted small">Start</div>
                 <div>{goal.start}kg</div>
+
                 <div className="muted small">Target</div>
                 <div>{goal.target}kg</div>
               </div>
@@ -270,21 +292,28 @@ export default function DashboardAdvanced() {
 
             <div className="progress-wrap">
               <div className="progress-bar">
-                <div className="progress-fill" style={{ width: `${goalProgress}%` }} />
+                <div
+                  className="progress-fill"
+                  style={{ width: `${goalProgress}%` }}
+                />
               </div>
+
               <div className="progress-meta">
                 <div>{goalProgress}%</div>
                 <div className="muted">progress</div>
               </div>
             </div>
+
             <div className="goal-caption">Current weight: {currentWeight} kg</div>
           </div>
         </section>
 
-        {/* Bottom row: Recent activities & schedule list */}
+        {/* Bottom Row */}
         <section className="bottom-row">
+          {/* Recent Activities */}
           <div className="card list-card">
             <h4>Recent Activities</h4>
+
             {workoutEntries.length === 0 ? (
               <p className="muted">No recent activities</p>
             ) : (
@@ -293,17 +322,24 @@ export default function DashboardAdvanced() {
                   <li key={w.id || Math.random()}>
                     <div className="li-left">
                       <div className="li-title">{w.exercise || "Exercise"}</div>
-                      <div className="muted small">{w.reps ? `Reps: ${w.reps}` : ""} {w.weight ? `• ${w.weight}kg` : ""}</div>
+                      <div className="muted small">
+                        {w.reps ? `Reps: ${w.reps}` : ""}{" "}
+                        {w.weight ? `• ${w.weight}kg` : ""}
+                      </div>
                     </div>
-                    <div className="li-right muted">{w.time ? new Date(w.time).toLocaleString() : ""}</div>
+                    <div className="li-right muted">
+                      {w.time ? new Date(w.time).toLocaleString() : ""}
+                    </div>
                   </li>
                 ))}
               </ul>
             )}
           </div>
 
+          {/* Schedule List */}
           <div className="card list-card">
             <h4>Upcoming Schedule</h4>
+
             {scheduleEntries.length === 0 ? (
               <p className="muted">No events scheduled</p>
             ) : (
@@ -312,10 +348,18 @@ export default function DashboardAdvanced() {
                   <li key={s.id || Math.random()}>
                     <div className="li-left">
                       <div className="li-title">{s.title}</div>
-                      <div className="muted small">{s.date} {s.time ? `• ${s.time}` : ""}</div>
+                      <div className="muted small">
+                        {s.date} {s.time ? `• ${s.time}` : ""}
+                      </div>
                     </div>
+
                     <div className="li-right">
-                      <button className="btn ghost" onClick={() => navigate("/workout/new#schedule")}>Open</button>
+                      <button
+                        className="btn ghost"
+                        onClick={() => navigate("/workout/new#schedule")}
+                      >
+                        Open
+                      </button>
                     </div>
                   </li>
                 ))}
