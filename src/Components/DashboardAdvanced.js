@@ -208,7 +208,19 @@ export default function DashboardAdvanced() {
           <div className="card small-card">
             <div className="card-head"><FaDumbbell className="icon" /><div>Workout</div></div>
             <div className="card-body">
-              <div className="big-num">{workoutsCount}</div>
+              <div
+                className="big-num"
+                style={{ cursor: "pointer" }}
+                role="button"
+                tabIndex={0}
+                onClick={() => navigate("/totalsessions")}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") navigate("/totalsessions");
+                }}
+                aria-label={`Open total sessions (${workoutsCount})`}
+              >
+                {workoutsCount}
+              </div>
               <div className="muted">Total sessions</div>
               <div className="actions-row">
                 <button className="btn" onClick={() => navigate("/workout/new")}>Start</button>
