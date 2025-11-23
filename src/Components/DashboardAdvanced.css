@@ -176,3 +176,149 @@ body, html, #root { height: 100%; margin: 0; }
 .sidebar-closed .adv-header {
   margin-left: 0;
 }
+/* --- Card Base Styles --- */
+.card {
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+/* --- Hover Effect --- */
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(76, 175, 80, 0.6); /* green glow accent */
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35),
+              0 0 12px rgba(76, 175, 80, 0.25);
+  background: #252525;
+}
+
+/* --- Stronger effect for goal card (optional) --- */
+.goal-card:hover {
+  border-color: #ffcc00;
+  box-shadow: 0 12px 32px rgba(255, 204, 0, 0.25);
+}
+
+/* --- List card subtle hover (optional, looks nice) --- */
+.list-card:hover {
+  border-color: rgba(252, 0, 0, 0.12);
+  background: #222;
+}
+
+
+/* NAVBAR BASE */
+.adv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px;
+  background: #1d1d1d;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+/* LEFT SECTION */
+.adv-header .left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.hamburger:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+}
+
+/* RIGHT SECTION */
+.adv-header .right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* SUMMARY PILLS */
+.summary-pill {
+  background: #2a2a2a;
+  padding: 8px 14px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-width: 70px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.summary-pill:hover {
+  background: #333;
+  transform: translateY(-3px);
+}
+
+.pill-title {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.pill-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* NAVBAR BUTTONS */
+.nav-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  border: 1px solid transparent;
+}
+
+/* Primary button */
+.nav-btn.primary {
+  background: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.nav-btn.primary:hover {
+  background: #45a047;
+  transform: translateY(-2px);
+}
+
+/* Ghost / minimal button */
+.nav-btn.ghost {
+  background: transparent;
+  color: #ddd;
+  border-color: rgba(255,255,255,0.3);
+}
+
+.nav-btn.ghost:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+}

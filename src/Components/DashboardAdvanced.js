@@ -130,7 +130,7 @@ export default function DashboardAdvanced() {
       </aside>
 
       {/* Top navbar */}
-      <header className="adv-header">
+      {/* <header className="adv-header">
         <div className="left">
           <button className="hamburger" onClick={() => setSidebarOpen(true)}>
             <FaBars />
@@ -152,7 +152,40 @@ export default function DashboardAdvanced() {
             <div className="pill-value">{scheduleCount}</div>
           </div>
         </div>
-      </header>
+      </header> */}
+      {/* Top navbar */}
+<header className="adv-header">
+  <div className="left">
+    <button className="hamburger" onClick={() => setSidebarOpen(true)}>
+      <FaBars />
+    </button>
+    <h2 className="page-title">Dashboard</h2>
+  </div>
+
+  <div className="right">
+
+    {/* Summary Pills */}
+    <div className="summary-pill">
+      <div className="pill-title">Workouts</div>
+      <div className="pill-value">{workoutsCount}</div>
+    </div>
+    <div className="summary-pill">
+      <div className="pill-title">Meals</div>
+      <div className="pill-value">{dietCount}</div>
+    </div>
+    <div className="summary-pill">
+      <div className="pill-title">Events</div>
+      <div className="pill-value">{scheduleCount}</div>
+    </div>
+
+    {/* NAVBAR BUTTONS */}
+    <button className="nav-btn primary" onClick={() => navigate("/workout/new")}>
+      New Workout
+    </button>
+
+  </div>
+</header>
+
 
       {/* Main */}
       <main className="adv-main">
