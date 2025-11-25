@@ -7,6 +7,8 @@ import Signup from "./Components/Signup";
 import DashboardAdvanced from "./Components/DashboardAdvanced";
 import Profile from "./Components/Profile";
 import TotalSessions from "./Components/TotalSessions";
+import WorkoutPage from "./WorkoutPage";
+import WorkoutPlayer from "./WorkoutPlayer";
 function App() {
   return (
     <Router>
@@ -17,9 +19,15 @@ function App() {
         <Route path="/dashboard" element={<DashboardAdvanced />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/totalsessions" element={<TotalSessions />}/>
+         <Route path="/workouts" element={<WorkoutPage />} />
+        <Route path="/workout/play" element={<WorkoutPlayer />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
+
+
+

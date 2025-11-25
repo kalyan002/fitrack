@@ -179,9 +179,33 @@ export default function DashboardAdvanced() {
     </div>
 
     {/* NAVBAR BUTTONS */}
-    <button className="nav-btn primary" onClick={() => navigate("/workout/new")}>
+    {/* <button className="nav-btn primary" onClick={() => navigate("/workout/new")}>
       New Workout
-    </button>
+    </button> */}
+
+<button className="btn" onClick={() => navigate("/workout/new")}>
+  Start
+</button>
+
+
+<button className="btn" onClick={() => navigate("/workouts")}>
+  Start
+</button>
+
+
+<button className="btn ghost" onClick={() => navigate("/workout/new")}>
+  Open
+</button>
+
+
+<button className="btn ghost" onClick={() => navigate("/workouts")}>
+  Open
+</button>
+
+
+<button className="nav-btn primary" onClick={() => navigate("/workouts")}>
+  New Workout
+</button>
 
   </div>
 </header>
