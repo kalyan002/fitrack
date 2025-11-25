@@ -1,0 +1,204 @@
+.sc-page {
+    min-height: 86vh;
+    padding: 24px;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+    background: linear-gradient(180deg, #071023, #071725);
+    color: #eaf6ff
+}
+
+.sc-hero {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sc-hero h1 {
+    margin: 0;
+    font-size: 22px
+}
+
+.sc-controls button {
+    background: transparent;
+    color: #cfe6ff;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer
+}
+
+.sc-controls .active {
+    background: linear-gradient(90deg, #ff7a18, #ffb629);
+    color: #111;
+    border: none
+}
+
+.sc-main {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 18px
+}
+
+.sc-left .sc-card,
+.sc-right .sc-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    margin-bottom: 12px
+}
+
+.sc-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-bottom: 8px
+}
+
+.sc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.sc-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.01);
+    padding: 8px;
+    border-radius: 8px
+}
+
+.sc-row-actions button {
+    margin-left: 8px
+}
+
+.sc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px
+}
+
+.sc-table th,
+.sc-table td {
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 8px;
+    text-align: left;
+    font-size: 14px
+}
+
+.sc-list-small {
+    margin: 0;
+    padding-left: 18px
+}
+
+.sc-right .plan {
+    margin-bottom: 12px;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    border-radius: 8px
+}
+
+.sc-right .plan-head {
+    font-weight: 800;
+    margin-bottom: 6px
+}
+
+.sc-right input,
+.sc-right textarea,
+.sc-right select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    margin-top: 6px;
+    background: #081422;
+    color: #eaf6ff;
+    border: 1px solid rgba(255, 255, 255, 0.04)
+}
+
+.sc-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1400
+}
+
+.sc-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 6, 8, 0.6)
+}
+
+.sc-modal-panel {
+    z-index: 2;
+    width: 420px;
+    max-width: 94%;
+    background: linear-gradient(180deg, #071023, #071725);
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04)
+}
+
+.muted {
+    color: #9fb3ce
+}
+
+.repeat-pill {
+    display: inline-block;
+    margin-left: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #cfe6ff;
+}
+
+.exercise-meta {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #cfe6ff;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 6px 8px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.exercise-meta.small {
+    font-size: 12px;
+    background: transparent;
+    padding: 0;
+    margin-top: 4px;
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, #ff7a18, #ffb629);
+    color: #111;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px
+}
+
+.btn.outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: #cfe6ff;
+    padding: 6px 10px;
+    border-radius: 8px
+}
+
+.btn.ghost {
+    background: transparent;
+    border: none;
+    color: #cfe6ff;
+    padding: 6px 8px
+}
+
+@media(max-width:900px) {
+    .sc-main {
+        grid-template-columns: 1fr
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useMemo, useState,} from "react";
+import React, { useMemo, useState, } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   FaBars,
@@ -154,29 +154,29 @@ export default function DashboardAdvanced() {
         </div>
       </header> */}
       {/* Top navbar */}
-<header className="adv-header">
-  <div className="left">
-    <button className="hamburger" onClick={() => setSidebarOpen(true)}>
-      <FaBars />
-    </button>
-    <h2 className="page-title">Dashboard</h2>
-  </div>
+      <header className="adv-header">
+        <div className="left">
+          <button className="hamburger" onClick={() => setSidebarOpen(true)}>
+            <FaBars />
+          </button>
+          <h2 className="page-title">Dashboard</h2>
+        </div>
 
-  <div className="right">
+        <div className="right">
 
-    {/* Summary Pills */}
-    <div className="summary-pill">
-      <div className="pill-title">Workouts</div>
-      <div className="pill-value">{workoutsCount}</div>
-    </div>
-    <div className="summary-pill">
-      <div className="pill-title">Meals</div>
-      <div className="pill-value">{dietCount}</div>
-    </div>
-    <div className="summary-pill">
-      <div className="pill-title">Events</div>
-      <div className="pill-value">{scheduleCount}</div>
-    </div>
+          {/* Summary Pills */}
+          <div className="summary-pill">
+            <div className="pill-title">Workouts</div>
+            <div className="pill-value">{workoutsCount}</div>
+          </div>
+          <div className="summary-pill">
+            <div className="pill-title">Meals</div>
+            <div className="pill-value">{dietCount}</div>
+          </div>
+          <div className="summary-pill">
+            <div className="pill-title">Events</div>
+            <div className="pill-value">{scheduleCount}</div>
+          </div>
 
     {/* NAVBAR BUTTONS */}
     {/* <button className="nav-btn primary" onClick={() => navigate("/workout/new")}>
@@ -207,8 +207,8 @@ export default function DashboardAdvanced() {
   New Workout
 </button>
 
-  </div>
-</header>
+        </div>
+      </header>
 
 
       {/* Main */}
@@ -280,10 +280,7 @@ export default function DashboardAdvanced() {
               <div className="big-num">{workoutsCount}</div>
               <div className="muted">Total sessions</div>
               <div className="actions-row">
-                <button className="btn" onClick={() => navigate("/workout/new")}>
-                  Start
-                </button>
-                <button className="btn ghost" onClick={() => navigate("/totalsessions")}>
+                <button className="btn" onClick={() => navigate("/totalsessions")}>
                   Open
                 </button>
               </div>
@@ -300,10 +297,8 @@ export default function DashboardAdvanced() {
               <div className="big-num">{dietCount}</div>
               <div className="muted">Meals logged</div>
               <div className="actions-row">
-                <button className="btn" onClick={() => navigate("/workout/new#diet")}>
-                  Log
-                </button>
-                <button className="btn ghost" onClick={() => navigate("/workout/new")}>
+              
+                <button className="btn" onClick={() => navigate("/food-diet")}>
                   Open
                 </button>
               </div>
@@ -323,7 +318,7 @@ export default function DashboardAdvanced() {
                 <button className="btn" onClick={() => navigate("/workout/new#schedule")}>
                   Add
                 </button>
-                <button className="btn ghost" onClick={() => navigate("/workout/new")}>
+                <button className="btn ghost" onClick={() => navigate("/schedule")}>
                   Open
                 </button>
               </div>
@@ -413,7 +408,7 @@ export default function DashboardAdvanced() {
                     <div className="li-right">
                       <button
                         className="btn ghost"
-                        onClick={() => navigate("/workout/new#schedule")}
+                        onClick={() => navigate('/schedule')}
                       >
                         Open
                       </button>
