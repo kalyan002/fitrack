@@ -7,16 +7,20 @@ import Signup from "./Components/Signup";
 import DashboardAdvanced from "./Components/DashboardAdvanced";
 import Profile from "./Components/Profile";
 import TotalSessions from "./Components/TotalSessions";
+import FoodDiet from "./Components/FoodDietPage";
+import SchedulePage from './Components/SchedulePage';
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-         <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<DashboardAdvanced />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/totalsessions" element={<TotalSessions />}/>
+        <Route path="/food-diet" element={<FoodDiet />} />
+        <Route path="/schedule" element={<SchedulePage />} />
+        <Route path="/totalsessions" element={<TotalSessions />} />
       </Routes>
     </Router>
   );

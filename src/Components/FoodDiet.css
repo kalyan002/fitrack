@@ -1,0 +1,306 @@
+.fd-page {
+    min-height: 90vh;
+    background: linear-gradient(180deg, #071023, #0b1220);
+    color: #eaf6ff;
+    padding: 28px;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+}
+
+.fd-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px
+}
+
+.fd-hero h1 {
+    margin: 0;
+    font-size: 24px
+}
+
+.muted {
+    color: #9fb3ce
+}
+
+.fd-controls button {
+    background: transparent;
+    color: #cfe6ff;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-left: 8px;
+    cursor: pointer
+}
+
+.fd-controls .active {
+    background: linear-gradient(90deg, #ff7a18, #ffb629);
+    color: #111;
+    border: none
+}
+
+.fd-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 18px
+}
+
+.fd-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04)
+}
+
+.meals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px
+}
+
+.meal-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.01)
+}
+
+.meal-time {
+    width: 90px;
+    font-weight: 700
+}
+
+.meal-name {
+    flex: 1
+}
+
+.meal-kcal {
+    font-weight: 700
+}
+
+.week-grid {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    flex-wrap: wrap
+}
+
+.day-card {
+    min-width: 120px;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.01)
+}
+
+.day-heading {
+    font-weight: 800;
+    font-size: 16px
+}
+
+.day-focus {
+    font-weight: 700
+}
+
+.month-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px
+}
+
+.phase-row {
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.01)
+}
+
+.phase-name {
+    font-weight: 800
+}
+
+.fd-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.quick-tips ul {
+    margin: 0;
+    padding-left: 18px
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, #ff7a18, #ffb629);
+    color: #111;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer
+}
+
+.btn.outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: #cfe6ff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer
+}
+
+@media (max-width: 900px) {
+    .fd-content {
+        grid-template-columns: 1fr
+    }
+}
+
+/* Logs and modal */
+.fd-card.logs {
+    margin-top: 12px
+}
+
+.logs-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logs-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.log-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.log-left {
+    display: flex;
+    flex-direction: column
+}
+
+.log-user {
+    font-weight: 700
+}
+
+.log-right {
+    margin-left: auto
+}
+
+.badge {
+    background: rgba(255, 215, 160, 0.12);
+    color: #ffdcb3;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-weight: 700
+}
+
+.fd-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200
+}
+
+.fd-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 6, 8, 0.6)
+}
+
+.fd-modal-panel {
+    position: relative;
+    z-index: 1;
+    width: 420px;
+    max-width: 92%;
+    background: linear-gradient(180deg, #071023, #0b1220);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.04)
+}
+
+.modal-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 8px 0
+}
+
+.modal-row input,
+.modal-row select {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.04)
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 12px
+}
+
+/* Schedule table styles */
+.schedule-area {
+    margin-top: 12px
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    overflow: hidden
+}
+
+.schedule-table th,
+.schedule-table td {
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 10px;
+    text-align: left;
+    font-size: 14px
+}
+
+.schedule-table thead th {
+    background: rgba(255, 255, 255, 0.02);
+    font-weight: 700
+}
+
+.schedule-week {
+    width: 100%
+}
+
+.schedule-week td {
+    min-width: 90px
+}
+
+.schedule-week .meal-type {
+    font-weight: 700;
+    width: 140px
+}
+
+.schedule-month td {
+    vertical-align: top
+}
+
+.schedule-note {
+    margin-top: 8px;
+    font-size: 13px
+}
+
+.mode-switch button {
+    margin-right: 8px
+}
