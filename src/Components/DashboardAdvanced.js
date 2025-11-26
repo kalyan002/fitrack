@@ -21,6 +21,14 @@ import {
   Cell,
 } from "recharts";
 import "./DashboardAdvanced.css";
+import workoutImg from "../assets/workout.jpg";
+import dietImg from "../assets/diet.jpg";
+import scheduleImg from "../assets/schedule.jpg"; // change name if needed
+import goalImg from "../assets/goal.jpg"; // or .png
+
+
+
+
 
 export default function DashboardAdvanced() {
   const navigate = useNavigate();
@@ -128,32 +136,6 @@ export default function DashboardAdvanced() {
           <small>© 2025 FitTrack</small>
         </div>
       </aside>
-
-      {/* Top navbar */}
-      {/* <header className="adv-header">
-        <div className="left">
-          <button className="hamburger" onClick={() => setSidebarOpen(true)}>
-            <FaBars />
-          </button>
-          <h2 className="page-title">Dashboard</h2>
-        </div>
-
-        <div className="right">
-          <div className="summary-pill">
-            <div className="pill-title">Workouts</div>
-            <div className="pill-value">{workoutsCount}</div>
-          </div>
-          <div className="summary-pill">
-            <div className="pill-title">Meals</div>
-            <div className="pill-value">{dietCount}</div>
-          </div>
-          <div className="summary-pill">
-            <div className="pill-title">Events</div>
-            <div className="pill-value">{scheduleCount}</div>
-          </div>
-        </div>
-      </header> */}
-      {/* Top navbar */}
       <header className="adv-header">
         <div className="left">
           <button className="hamburger" onClick={() => setSidebarOpen(true)}>
@@ -178,34 +160,16 @@ export default function DashboardAdvanced() {
             <div className="pill-value">{scheduleCount}</div>
           </div>
 
-    {/* NAVBAR BUTTONS */}
-    {/* <button className="nav-btn primary" onClick={() => navigate("/workout/new")}>
-      New Workout
-    </button> */}
-
-<button className="btn" onClick={() => navigate("/workout/new")}>
-  Start
-</button>
+          {/* NAVBAR BUTTONS */}
+    
+          <button className="btn" onClick={() => navigate("/workouts")}>
+            Open
+          </button>
 
 
-<button className="btn" onClick={() => navigate("/workouts")}>
-  Start
-</button>
-
-
-<button className="btn ghost" onClick={() => navigate("/workout/new")}>
-  Open
-</button>
-
-
-<button className="btn ghost" onClick={() => navigate("/workouts")}>
-  Open
-</button>
-
-
-<button className="nav-btn primary" onClick={() => navigate("/workouts")}>
-  New Workout
-</button>
+          <button className="nav-btn primary" onClick={() => navigate("/workouts")}>
+            New Workout
+          </button>
 
         </div>
       </header>
@@ -215,7 +179,13 @@ export default function DashboardAdvanced() {
       <main className="adv-main">
         <section className="top-row">
           {/* Calorie Donut */}
-          <div className="card donut-card">
+          <div className="card donut-card"
+            style={{
+              background: "linear-gradient(135deg, #f1aeaeff, #69e097ff)",
+              color: "#e2ffe8"
+            }}
+
+          >
             <h4>Calories Today</h4>
             <div className="donut-wrap">
               <ResponsiveContainer width="100%" height={160}>
@@ -251,34 +221,66 @@ export default function DashboardAdvanced() {
           </div>
 
           {/* Weight Chart */}
-          <div className="card chart-card">
-            <h4>Weight Progress</h4>
+          <div
+            className="card chart-card"
+            style={{
+              background: "linear-gradient(135deg, #f1aeaeff, #69e097ff)",
+              color: "#fff",
+              borderRadius: "12px",
+              padding: "16px",
+            }}
+          >
+            <h4 style={{ marginBottom: "10px" }}>Weight Progress</h4>
+
             <div style={{ width: "100%", height: 180 }}>
               <ResponsiveContainer>
                 <LineChart data={weightData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="month" />
-                  <YAxis />
-                  <Tooltip />
-                  <Line type="monotone" dataKey="weight" stroke="#ff0000" strokeWidth={2} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                  <XAxis dataKey="month" stroke="#fff" />
+                  <YAxis stroke="#fff" />
+                  <Tooltip
+                    contentStyle={{ backgroundColor: "#222", border: "none", color: "#fff" }}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="weight"
+                    stroke="#ff4d4d"
+                    strokeWidth={3}
+                    dot={{ r: 4 }}
+                  />
                 </LineChart>
               </ResponsiveContainer>
             </div>
-            <div className="chart-caption">Latest: {currentWeight} kg</div>
+
+            <div className="chart-caption" style={{ marginTop: "10px", opacity: 0.8 }}>
+              Latest: {currentWeight} kg
+            </div>
           </div>
+
         </section>
 
         {/* Middle Row */}
         <section className="middle-row">
           {/* Workout */}
-          <div className="card small-card">
+          <div
+            className="card small-card"
+            style={{
+              backgroundImage: `url(${workoutImg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              color: "#fff", // optional: makes text white for readability
+            }}
+          >
             <div className="card-head">
               <FaDumbbell className="icon" />
               <div>Workout</div>
             </div>
-            <div className="card-body">
+
+            <div className="card-body" style={{ backdropFilter: "brightness(0.8)" }}>
               <div className="big-num">{workoutsCount}</div>
-              <div className="muted">Total sessions</div>
+              <div className="text-light">Total sessions</div>
+
               <div className="actions-row">
                 <button className="btn" onClick={() => navigate("/totalsessions")}>
                   Open
@@ -287,18 +289,30 @@ export default function DashboardAdvanced() {
             </div>
           </div>
 
+
+
           {/* Diet */}
-          <div className="card small-card">
+          <div
+            className="card small-card"
+            style={{
+              backgroundImage: `url(${dietImg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              color: "#fff",
+            }}
+          >
             <div className="card-head">
               <FaAppleAlt className="icon" />
               <div>Food / Diet</div>
             </div>
+
             <div className="card-body">
               <div className="big-num">{dietCount}</div>
-              <div className="muted">Meals logged</div>
+              <div className="text-light">Meals logged</div>
+
               <div className="actions-row">
-              
-                <button className="btn" onClick={() => navigate("/food-diet")}>
+                <button className="btn" onClick={() => navigate("/fooddietpage")}>
                   Open
                 </button>
               </div>
@@ -306,27 +320,51 @@ export default function DashboardAdvanced() {
           </div>
 
           {/* Schedule */}
-          <div className="card small-card">
+          <div
+            className="card small-card"
+            style={{
+              backgroundImage: `url(${scheduleImg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              color: "#080000ff",
+              fontWeight: "bold",
+            }}
+          >
             <div className="card-head">
               <FaCalendarAlt className="icon" />
               <div>Schedule</div>
             </div>
+
             <div className="card-body">
               <div className="big-num">{scheduleCount}</div>
-              <div className="muted">Upcoming events</div>
+
+
               <div className="actions-row">
                 <button className="btn" onClick={() => navigate("/workout/new#schedule")}>
                   Add
                 </button>
-                <button className="btn ghost" onClick={() => navigate("/schedule")}>
+                <button className="btn" onClick={() => navigate("/schedulepage")}>
                   Open
                 </button>
               </div>
             </div>
           </div>
 
+
           {/* Goal Progress */}
-          <div className="card goal-card">
+          <div
+            className="card goal-card"
+            style={{
+              backgroundImage: `url(${goalImg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              color: "#fff",
+              borderRadius: "12px",
+              padding: "16px",
+            }}
+          >
             <div className="goal-head">
               <div>
                 <div className="muted">Goal</div>
@@ -346,7 +384,10 @@ export default function DashboardAdvanced() {
               <div className="progress-bar">
                 <div
                   className="progress-fill"
-                  style={{ width: `${goalProgress}%` }}
+                  style={{
+                    width: `${goalProgress}%`,
+                    backgroundColor: "#00ff85",
+                  }}
                 />
               </div>
 
@@ -358,6 +399,7 @@ export default function DashboardAdvanced() {
 
             <div className="goal-caption">Current weight: {currentWeight} kg</div>
           </div>
+
         </section>
 
         {/* Bottom Row */}

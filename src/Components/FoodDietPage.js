@@ -4,7 +4,7 @@ import './FoodDiet.css';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
-export default function FoodDietPage() {
+ function FoodDietPage() {
     const [range, setRange] = useState('Day');
     const [mode, setMode] = useState('Plan'); // 'Plan' or 'Schedule'
     const location = useLocation();
@@ -274,3 +274,4 @@ export default function FoodDietPage() {
         </div>
     )
 }
+export default FoodDietPage;

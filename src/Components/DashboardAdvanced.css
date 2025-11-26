@@ -322,3 +322,13 @@ body, html, #root { height: 100%; margin: 0; }
   background: rgba(255,255,255,0.08);
   transform: translateY(-2px);
 }
+/* ROOT BACKGROUND */
+.adv-root {
+  background: linear-gradient(135deg,#ECEEDF,);
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-attachment: fixed; /* smooth scrolling effect */
+  background-size: cover;
+}

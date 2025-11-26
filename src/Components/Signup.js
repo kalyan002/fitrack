@@ -125,14 +125,14 @@ const styles = {
     background: "#0f1113",
     padding: "35px 30px",
     borderRadius: "14px",
-    boxShadow: "0 0 20px rgba(255, 0, 0, 0.15)",
+    boxShadow: "0 0 20px rgba(9, 149, 230, 1)",
     color: "#fff",
     textAlign: "center",
   },
   title: {
     fontSize: "28px",
     marginBottom: "6px",
-    color: "#ff3c3c",
+    color: "#3cffe5ff",
   },
   subtitle: {
     fontSize: "14px",
@@ -161,7 +161,7 @@ const styles = {
   },
   button: {
     width: "100%",
-    background: "linear-gradient(90deg, #ff5a5a, #ff2c2c)",
+    background: "linear-gradient(90deg, #199aceff, #16d39aff)",
     color: "#fff",
     border: "none",
     borderRadius: "8px",
