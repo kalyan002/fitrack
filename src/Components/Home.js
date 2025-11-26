@@ -59,7 +59,7 @@ function Home() {
 
   return (
     <div className="landing-container">
-      {/* NAVBAR */}
+      {/* NAVBA */}
       <header className="navbar">
         <div
           className="logo"
