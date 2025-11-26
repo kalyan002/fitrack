@@ -26,7 +26,7 @@ export default function DashboardAdvanced() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  // load entries from localStorage
+  // load entries from localSorage
   const dietEntries = JSON.parse(localStorage.getItem("dietEntries")) || [];
   const workoutEntries = JSON.parse(localStorage.getItem("workoutEntries")) || [];
   const scheduleEntries = JSON.parse(localStorage.getItem("scheduleEntries")) || [];
