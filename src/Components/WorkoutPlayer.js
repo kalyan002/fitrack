@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FaStop, FaPlay, FaArrowLeft } from "react-icons/fa";
 import "./WorkoutPlayer.css";
 
-export default function WorkoutPlayer() {
+ function WorkoutPlayer() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [workout, setWorkout] = useState(null);
@@ -132,3 +132,4 @@ export default function WorkoutPlayer() {
     </div>
   );
 }
+export default WorkoutPlayer;

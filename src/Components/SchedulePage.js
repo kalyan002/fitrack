@@ -3,7 +3,7 @@ import './Schedule.css';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
-export default function SchedulePage() {
+ function SchedulePage() {
     const [view, setView] = useState('Day'); // Day | Week | Month
     const [items, setItems] = useState(() => JSON.parse(localStorage.getItem('scheduleEntries')) || []);
     const [showForm, setShowForm] = useState(false);
@@ -238,3 +238,4 @@ export default function SchedulePage() {
         </div>
     );
 }
+export default SchedulePage;
