@@ -97,8 +97,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url("https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1600&q=80")
-    center/cover no-repeat;
+  background: url("https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
 }
 
 .hero-overlay {
@@ -271,6 +270,15 @@ body {
   border-top: 2px solid #2d75a5;
 }
 
+.footer .footer-link {
+  background: none;
+  border: none;
+  color: #2d75a5;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
   .navbar {
@@ -295,6 +303,7 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
 /* === TRAINERS SECTION === */
 .trainers {
   background: #111;
@@ -423,6 +432,7 @@ body {
 .feedback-form button:hover {
   background: #1DBF73;
 }
+
 .progress-section {
   text-align: center;
   padding: 60px 0;
@@ -448,6 +458,7 @@ body {
   padding: 20px;
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
 }
+
 .goals-section {
   background: #111;
   color: #fff;
@@ -472,14 +483,17 @@ body {
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
   transition: 0.3s;
 }
+
 .goal-card:hover {
   transform: scale(1.05);
 }
+
 .goal-icon {
   font-size: 2rem;
   color: #ff4d4d;
   margin-bottom: 10px;
 }
+
 .goal-bar {
   background: #333;
   height: 10px;
@@ -487,6 +501,7 @@ body {
   margin-top: 10px;
   overflow: hidden;
 }
+
 .goal-progress {
   background: #00ff88;
   height: 100%;
@@ -496,6 +511,7 @@ body {
 .achievements {
   margin-top: 50px;
 }
+
 .achievement-grid {
   display: flex;
   justify-content: center;
@@ -503,6 +519,7 @@ body {
   flex-wrap: wrap;
   margin-top: 20px;
 }
+
 .achievement-card {
   background: #1c1c1c;
   padding: 20px 30px;
@@ -511,19 +528,24 @@ body {
   border: 1px solid #ff4d4d;
   transition: 0.3s;
 }
+
 .achievement-card:hover {
   transform: scale(1.1);
 }
+
 .achievement-icon {
   font-size: 2rem;
   margin-bottom: 10px;
 }
+
 .gold {
   color: gold;
 }
+
 .silver {
   color: silver;
 }
+
 .bronze {
   color: #cd7f32;
 }

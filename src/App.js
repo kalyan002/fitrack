@@ -10,20 +10,25 @@ import TotalSessions from "./Components/TotalSessions";
 import FoodDietPage from "./Components/FoodDietPage";
 import SchedulePage from "./Components/SchedulePage";
 import WorkoutPlayer from "./Components/WorkoutPlayer";
+import NewWorkout from "./Components/NewWorkout";
+import FooterPage from "./Components/FooterPage";
 
 function App() {
   return (
-   <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<DashboardAdvanced />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/totalsessions" element={<TotalSessions />}/>
-         <Route path="/fooddietpage" element={<FoodDietPage />}/>
-          <Route path="/schedulepage" element={<SchedulePage />}/><Route path="/workoutplayer" element={<WorkoutPlayer />} />
-      </Routes>
-   
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/dashboard" element={<DashboardAdvanced />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/totalsessions" element={<TotalSessions />} />
+      <Route path="/fooddietpage" element={<FoodDietPage />} />
+      <Route path="/schedulepage" element={<SchedulePage />} />
+      <Route path="/workoutplayer" element={<WorkoutPlayer />} />
+      <Route path="/workout/new" element={<NewWorkout />} />
+      <Route path="/footer" element={<FooterPage />} />
+    </Routes>
+
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Footer from './Footer';
 import "./Home.css";
 import {
   FaDumbbell,
@@ -316,7 +317,7 @@ function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="footer">© 2025 FitTrack. All rights reserved.</footer>
+      <Footer />
     </div>
   );
 }
