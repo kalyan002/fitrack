@@ -26,10 +26,10 @@ html,
   grid-template-columns: 260px 1fr;
   grid-template-rows: auto 1fr;
   /* allow the page to grow beyond viewport so the footer appears after the dashboard */
-  min-height: 100vh;
+
   background: var(--bg);
-  gap: 16px;
-  padding: 16px;
+
+  padding: 16px 16px 16px 0px;
   transition: all .22s ease;
 }
 
@@ -37,6 +37,8 @@ html,
 /* when closed we still keep a single column so content doesn't get pushed */
 .adv-root.sidebar-closed {
   grid-template-columns: 0px 1fr;
+  padding-left: 0;
+  
 }
 
 /* Sidebar */
@@ -705,6 +707,7 @@ html,
 .sidebar-open .adv-sidebar {
   transform: translateX(0);
 }
+
 
 /* Make sure header/main don't get pushed or keep left spacing when sidebar opens */
 /* NOTE: header/main push behaviour is handled by the grid on wide screens; overlay-only rules are applied in the mobile media query. */
