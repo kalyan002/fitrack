@@ -36,7 +36,7 @@ html,
 /* when sidebar closed, collapse */
 /* when closed we still keep a single column so content doesn't get pushed */
 .adv-root.sidebar-closed {
-  grid-template-columns: 60px 1fr;
+  grid-template-columns: 0px 1fr;
 }
 
 /* Sidebar */
@@ -581,6 +581,7 @@ html,
   display: flex;
   align-items: center;
   gap: 14px;
+  
 }
 
 .hamburger {
@@ -707,3 +708,29 @@ html,
 
 /* Make sure header/main don't get pushed or keep left spacing when sidebar opens */
 /* NOTE: header/main push behaviour is handled by the grid on wide screens; overlay-only rules are applied in the mobile media query. */
+
+/* Remove default browser padding/margins */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* prevent scrolling gaps */
+}
+
+/* Make entire dashboard fill the screen */
+.adv-root {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Make main content stretch fully */
+.adv-main {
+  height: calc(100vh - 70px); /* adjust based on header height */
+  overflow-y: auto; /* stay scrollable inside */
+  padding: 0; /* remove unwanted gaps */
+}
+

@@ -2,6 +2,8 @@ import React, { useMemo, useState } from "react";
 import "./TotalSessions.css";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { FaArrowLeft, FaHome } from "react-icons/fa";
+
 
 // Presentational component for a gym-style 'Total Sessions' page
 export default function TotalSessions({ count = 32, goal = 50 }) {
@@ -112,22 +114,23 @@ export default function TotalSessions({ count = 32, goal = 50 }) {
     return str;
   }
 
-  return (
-    <div className="ts-page">
-      <header className="ts-hero">
-        <div className="ts-hero-left">
-          <h1>Total Workout Sessions</h1>
-          <p className="ts-sub">Track your training progress — keep the streak alive 💪</p>
-        </div>
+ return (
+  <div className="ts-page">
 
-        <div className="ts-hero-right">
-          <div className="range-buttons">
-            <button className={range === 'Week' ? 'active' : ''} onClick={() => setRange('Week')}>Week</button>
-            <button className={range === 'Month' ? 'active' : ''} onClick={() => setRange('Month')}>Month</button>
-            <button className={range === 'Year' ? 'active' : ''} onClick={() => setRange('Year')}>Year</button>
-          </div>
-        </div>
-      </header>
+   {/* === NAVBAR === */}
+<nav className="ts-navbar">
+  <button className="nav-btn" onClick={() => window.history.back()}>
+    <FaArrowLeft /> Back
+  </button>
+
+  <div className="nav-title">Total Sessions</div>
+
+  <button className="nav-btn" onClick={() => window.location.href = '/dashboard'}>
+    <FaHome /> Dashboard
+  </button>
+</nav>
+{/* === END NAVBAR === */}
+
 
       <main className="ts-content">
         <section className="ts-left">

@@ -342,3 +342,41 @@
   transform: translateY(-2px);
   transition: transform .12s ease;
 }
+/* Top Navigation Bar */
+.ts-navbar {
+  height: 55px;
+  background: #1a1a1a; /* dark navbar like dashboard */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.ts-navbar .nav-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 6px 10px;
+  transition: 0.2s;
+}
+
+.nav-btn:hover {
+  background: #333;
+}

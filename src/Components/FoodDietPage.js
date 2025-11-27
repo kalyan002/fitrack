@@ -52,7 +52,7 @@ import html2canvas from 'html2canvas';
 
     const [dietEntries, setDietEntries] = useState(() => JSON.parse(localStorage.getItem('dietEntries')) || []);
     const [workoutEntries, setWorkoutEntries] = useState(() => JSON.parse(localStorage.getItem('workoutEntries')) || []);
-    const [scheduleEntries, setScheduleEntries] = useState(() => JSON.parse(localStorage.getItem('scheduleEntries')) || []);
+    const [scheduleEntries,] = useState(() => JSON.parse(localStorage.getItem('scheduleEntries')) || []);
     const [showModal, setShowModal] = useState(false);
     const [form, setForm] = useState({ mealType: 'Breakfast', name: '', calories: '', time: '' });
     const [filter, setFilter] = useState('Today');

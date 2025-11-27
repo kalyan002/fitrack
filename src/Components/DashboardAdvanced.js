@@ -26,7 +26,7 @@ import workoutImg from "../assets/workout.jpg";
 import dietImg from "../assets/diet.jpg";
 import scheduleImg from "../assets/schedule.jpg";
 import goalImg from "../assets/goal.jpg";
-import Footer from './Footer';
+
 
 export default function DashboardAdvanced() {
   const navigate = useNavigate();
@@ -496,12 +496,10 @@ export default function DashboardAdvanced() {
             </div>
           </section>
         </main>
-        {/* end adv-root */}
+      
       </div>
-      {/* site footer (inline, outside the dashboard wrapper so it appears only after page scroll) */}
-      <Footer />
+    
     </>
   );
 }
 
-// render adv-root + footer outside to allow page scrolling so footer appears after dashboard
