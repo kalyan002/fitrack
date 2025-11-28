@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
+import profile from "../assets/profile.jpeg";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -11,7 +12,6 @@ export default function Profile() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    // Keep form synced with storage same-session (optional)
     const onStorage = () => {
       const u = JSON.parse(localStorage.getItem("user")) || {};
       setName(u.name || "");
@@ -32,16 +32,36 @@ export default function Profile() {
     const user = { ...stored, name, email, avatar };
     localStorage.setItem("user", JSON.stringify(user));
     setMessage("Profile saved!");
-    // return to dashboard after a small delay so user sees message
+
     setTimeout(() => navigate("/dashboard"), 600);
   };
 
   return (
-    <div className="profile-page">
+    <div
+      className="profile-page"
+      style={{
+        minHeight: "100vh",
+       backgroundImage: `url(${profile})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+       
+      }}
+    >
       <div className="profile-card">
         <h2>Profile</h2>
+
         <div className="profile-top">
-          <img src={avatar || `https://api.dicebear.com/6.x/initials/svg?seed=${encodeURIComponent(email || name || "guest")}`} alt="avatar" className="profile-preview" />
+          <img
+            src={
+              avatar ||
+              `https://api.dicebear.com/6.x/initials/svg?seed=${encodeURIComponent(
+                email || name || "guest"
+              )}`
+            }
+            alt="avatar"
+            className="profile-preview"
+          />
+
           <div className="profile-meta">
             <h3>{name || "Guest"}</h3>
             <p className="muted">{email || "No email set"}</p>
@@ -51,22 +71,39 @@ export default function Profile() {
         <form className="profile-form" onSubmit={handleSave}>
           <label>
             Full name
-            <input value={name} onChange={(e) => setName(e.target.value)} required />
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
           </label>
 
           <label>
             Email
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </label>
 
           <label>
             Avatar URL (optional)
-            <input value={avatar} onChange={(e) => setAvatar(e.target.value)} placeholder="https://..." />
+            <input
+              value={avatar}
+              onChange={(e) => setAvatar(e.target.value)}
+              placeholder="https://..."
+            />
           </label>
 
           <div className="profile-actions">
-            <button type="submit" className="btn-save">Save Profile</button>
-            <button type="button" className="btn-cancel" onClick={() => navigate(-1)}>Cancel</button>
+            <button type="submit" className="btn-save">
+              Save Profile
+            </button>
+            <button type="button" className="btn-cancel" onClick={() => navigate(-1)}>
+              Cancel
+            </button>
           </div>
 
           {message && <p className="form-message">{message}</p>}

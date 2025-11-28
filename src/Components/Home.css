@@ -11,6 +11,7 @@ body {
   background-color: #000;
   color: #fff;
   overflow-x: hidden;
+  display: contents;
 }
 
 /* === NAVBAR === */
@@ -189,6 +190,8 @@ body {
   background: linear-gradient(to right, #000, #111);
   padding: 100px 20px;
   text-align: center;
+  scroll-padding-top: 100px;
+  display: contents;
 }
 
 .goals h2 {
@@ -229,7 +232,7 @@ body {
 }
 
 .contact h2 {
-  color: #2d75a5;
+  color: #0b0b0bff;
   margin-bottom: 20px;
 }
 
@@ -243,7 +246,7 @@ body {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  background: #2d75a5;
+  background: #111112;
   color: #fff;
   border: none;
   border-radius: 50px;
@@ -266,14 +269,14 @@ body {
   background: #000;
   color: #888;
   text-align: center;
-  padding: 20px 0;
+  padding:  0;
   border-top: 2px solid #2d75a5;
 }
 
 .footer .footer-link {
   background: none;
   border: none;
-  color: #2d75a5;
+  color: #070707;
   cursor: pointer;
   text-decoration: underline;
   font-weight: 600;

@@ -21,11 +21,10 @@ import {
   Cell,
 } from "recharts";
 import "./DashboardAdvanced.css";
-
-import workoutImg from "../assets/workout.jpg";
-import dietImg from "../assets/diet.jpg";
-import scheduleImg from "../assets/schedule.jpg";
-import goalImg from "../assets/goal.jpg";
+import workoutImg from "../assets/workout.jpeg";
+import dietImg from "../assets/diet.jpeg";
+import scheduleImg from "../assets/schedule.jpeg";
+import goalImg from "../assets/goal.jpeg";
 
 
 export default function DashboardAdvanced() {
@@ -145,9 +144,7 @@ export default function DashboardAdvanced() {
               Profile
             </button>
 
-            <button onClick={() => navigate("/settings")} className="nav-btn">
-              Settings
-            </button>
+
           </nav>
 
           <div className="sidebar-footer">
@@ -219,7 +216,7 @@ export default function DashboardAdvanced() {
             <div
               className="card donut-card"
               style={{
-                background: "linear-gradient(135deg, #f1aeaeff, #69e097ff)",
+                background: "linear-gradient(135deg, #0b0a0aff, #1077b7ff)",
                 color: "#e2ffe8",
               }}
             >
@@ -262,7 +259,7 @@ export default function DashboardAdvanced() {
             <div
               className="card chart-card"
               style={{
-                background: "linear-gradient(135deg, #f1aeaeff, #69e097ff)",
+                background: "linear-gradient(135deg, #130202ff, #1077b7ff)",
                 color: "#fff",
               }}
             >
@@ -311,6 +308,7 @@ export default function DashboardAdvanced() {
                 backgroundImage: `url(${workoutImg})`,
                 backgroundSize: "cover",
                 color: "#fff",
+                 fontWeight: "bold",
               }}
             >
               <div className="card-head">
@@ -340,6 +338,7 @@ export default function DashboardAdvanced() {
                 backgroundImage: `url(${dietImg})`,
                 backgroundSize: "cover",
                 color: "#fff",
+                 fontWeight: "bold",
               }}
             >
               <div className="card-head">
@@ -365,7 +364,7 @@ export default function DashboardAdvanced() {
               style={{
                 backgroundImage: `url(${scheduleImg})`,
                 backgroundSize: "cover",
-                color: "#000",
+                color: "#f6f0f0ff",
                 fontWeight: "bold",
               }}
             >
@@ -402,6 +401,7 @@ export default function DashboardAdvanced() {
                 backgroundImage: `url(${goalImg})`,
                 backgroundSize: "cover",
                 color: "#fff",
+                 fontWeight: "bold", 
               }}
             >
               <div className="goal-head">

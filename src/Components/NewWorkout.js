@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./NewWorkout.css";
+import { FaArrowLeft, FaHome } from "react-icons/fa";
 
 export default function NewWorkout() {
     const [workoutName, setWorkoutName] = useState("");
     const [message, setMessage] = useState("");
-    const [selectedExercise, setSelectedExercise] = useState(null); // for popup
+    const [selectedExercise, setSelectedExercise] = useState(null);
 
     const exercises = [
         "Squat",
@@ -34,6 +35,20 @@ export default function NewWorkout() {
     return (
         <div className="newworkout-root">
 
+            {/* === NAVBAR (Copied from TotalSessions) === */}
+            <nav className="ts-navbar">
+                <button className="nav-btn" onClick={() => window.history.back()}>
+                    <FaArrowLeft /> Back
+                </button>
+
+                <div className="nav-title">New Workout</div>
+
+                <button className="nav-btn" onClick={() => window.location.href = '/dashboard'}>
+                    <FaHome /> Dashboard
+                </button>
+            </nav>
+            {/* === END NAVBAR === */}
+
             {message && <p className="nw-alert">{message}</p>}
 
             <div className="nw-hero">
@@ -42,7 +57,7 @@ export default function NewWorkout() {
                     <p>Create a new workout session by choosing exercises, sets and reps.</p>
 
                     <div className="nw-controls">
-                        <input 
+                        <input
                             type="text"
                             value={workoutName}
                             onChange={(e) => setWorkoutName(e.target.value)}
@@ -79,7 +94,7 @@ export default function NewWorkout() {
 
                 <div className="nw-exercises-grid">
                     {exercises.map((item, index) => (
-                        <div 
+                        <div
                             key={index}
                             className="card exercise-card"
                             onClick={() => setSelectedExercise(item)}
@@ -90,7 +105,6 @@ export default function NewWorkout() {
                 </div>
             </section>
 
-            {/* Exercise Details Popup */}
             {selectedExercise && (
                 <div className="nw-modal">
                     <div className="nw-modal-content">
@@ -98,7 +112,7 @@ export default function NewWorkout() {
                         <p>This is a sample description for {selectedExercise}.  
                         You can add sets, reps, weight suggestions, etc.</p>
 
-                        <button 
+                        <button
                             className="btn primary"
                             onClick={() => setSelectedExercise(null)}
                         >

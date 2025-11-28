@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import './FoodDiet.css';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { FaArrowLeft, FaHome } from "react-icons/fa";
 
  function FoodDietPage() {
     const [range, setRange] = useState('Day');
@@ -231,6 +232,19 @@ import html2canvas from 'html2canvas';
 
     return (
         <div className="fd-page">
+               {/* === NAVBAR (Copied from TotalSessions) === */}
+                        <nav className="ts-navbar">
+                            <button className="nav-btn" onClick={() => window.history.back()}>
+                                <FaArrowLeft /> Back
+                            </button>
+            
+                            <div className="nav-title">New Workout</div>
+            
+                            <button className="nav-btn" onClick={() => window.location.href = '/dashboard'}>
+                                <FaHome /> Dashboard
+                            </button>
+                        </nav>
+                        {/* === END NAVBAR === */}
             <header className="fd-hero"><div><h1>Food & Diet</h1><p className="muted">Detailed plans and date-wise logs — log meals here.</p></div><div className="fd-controls"><div className="mode-switch"><button className={mode === 'Plan' ? 'active' : ''} onClick={() => setMode('Plan')}>Plan</button><button className={mode === 'Schedule' ? 'active' : ''} onClick={() => setMode('Schedule')}>Schedule</button></div><div style={{ marginLeft: 8 }}><button className={range === 'Day' ? 'active' : ''} onClick={() => setRange('Day')}>Day</button><button className={range === 'Week' ? 'active' : ''} onClick={() => setRange('Week')}>Week</button><button className={range === 'Month' ? 'active' : ''} onClick={() => setRange('Month')}>Month</button></div></div></header>
 
             <main className="fd-content">

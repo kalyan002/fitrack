@@ -139,27 +139,45 @@ function Home() {
         </div>
       </section>
 
-      {/* TRAINERS SECTION */}
-      <section id="trainers" className="trainers">
-        <h2 data-aos="fade-up">Meet Our Professional Trainers</h2>
-        <div className="trainer-grid">
-          <div className="trainer-card" data-aos="flip-up">
-            <FaUserTie className="trainer-icon" />
-            <h3>John Carter</h3>
-            <p>Certified Strength & Conditioning Coach</p>
-          </div>
-          <div className="trainer-card" data-aos="flip-up" data-aos-delay="200">
-            <FaUserTie className="trainer-icon" />
-            <h3>Emily Stone</h3>
-            <p>Yoga & Flexibility Specialist</p>
-          </div>
-          <div className="trainer-card" data-aos="flip-up" data-aos-delay="400">
-            <FaUserTie className="trainer-icon" />
-            <h3>Alex Johnson</h3>
-            <p>Nutrition & Weight Management Expert</p>
-          </div>
-        </div>
-      </section>
+    {/* TRAINERS SECTION */}
+<section id="trainers" className="trainers">
+  <h2 data-aos="fade-up">Meet Our Professional Trainers</h2>
+  <div className="trainer-grid">
+
+    <div className="trainer-card" data-aos="flip-up">
+      <FaUserTie className="trainer-icon" />
+      <h3>John Carter</h3>
+      <p>Certified Strength & Conditioning Coach</p>
+    </div>
+
+    <div className="trainer-card" data-aos="flip-up" data-aos-delay="200">
+      <FaUserTie className="trainer-icon" />
+      <h3>Emily Stone</h3>
+      <p>Yoga & Flexibility Specialist</p>
+    </div>
+
+    <div className="trainer-card" data-aos="flip-up" data-aos-delay="400">
+      <FaUserTie className="trainer-icon" />
+      <h3>Alex Johnson</h3>
+      <p>Nutrition & Weight Management Expert</p>
+    </div>
+
+    {/* ⭐ NEW TRAINER #4 */}
+    <div className="trainer-card" data-aos="flip-up" data-aos-delay="600">
+      <FaUserTie className="trainer-icon" />
+      <h3>Sophia Taylor</h3>
+      <p>HIIT & Functional Training Specialist</p>
+    </div>
+
+    {/* ⭐ NEW TRAINER #5 */}
+    <div className="trainer-card" data-aos="flip-up" data-aos-delay="800">
+      <FaUserTie className="trainer-icon" />
+      <h3>Michael Blake</h3>
+      <p>Sports Performance & Endurance Coach</p>
+    </div>
+
+  </div>
+</section>
 
       {/* PROGRESS SECTION */}
       <section id="progress" className="progress-section">
@@ -220,7 +238,7 @@ function Home() {
             <h3>Goal: Lose 5kg</h3>
             <p>Progress: 80% completed</p>
             <div className="goal-bar">
-              <div className="goal-progress" style={{ width: "80%" }}></div>
+              <div className="goal-progress" style={{ width: "80%", padding:"10px" }}></div>
             </div>
           </div>
 

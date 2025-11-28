@@ -71,14 +71,16 @@ html,
 .sidebar-open .adv-backdrop {
   opacity: 1;
   pointer-events: auto;
+  color: white;
 }
 
 /* translucent/glass sidebar so dashboard remains visible behind it */
 .adv-sidebar.open {
-  background: rgba(255, 255, 255, 0.92);
+  background: linear-gradient(black,rgb(6, 75, 115));
   backdrop-filter: blur(6px) saturate(110%);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
   border-radius: 0 12px 12px 0;
+  color: white;
   /* match rounded look but don't clip */
 }
 
@@ -232,7 +234,7 @@ html,
 }
 
 .card {
-  background: var(--card);
+  background:rgb(3, 76, 118);
   border-radius: var(--radius);
   padding: 12px;
   box-shadow: 0 10px 30px var(--shadow);
@@ -531,7 +533,7 @@ html,
 /* NOTE: main/header are not shifted anymore. The sidebar overlays the page when open. */
 /* --- Card Base Styles --- */
 .card {
-  background: #1e1e1e;
+  background: #08299f;
   border-radius: 12px;
   padding: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);

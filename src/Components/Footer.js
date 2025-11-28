@@ -32,7 +32,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="footer-bar">© 2025 FitTrack — Built with ❤️</div>
+            <div className="footer-bar">© 2025 FitTrack </div>
         </footer>
     )
 }

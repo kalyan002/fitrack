@@ -202,3 +202,73 @@
         grid-template-columns: 1fr
     }
 }
+/* ===============================
+   TOP NAVBAR (TotalSessions Style)
+================================= */
+.ts-navbar {
+    width: 100%;
+    height: 60px;
+    background: #082348;           /* your primary color */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Navbar title */
+.nav-title {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Buttons */
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s ease-in-out;
+    backdrop-filter: blur(4px);
+}
+
+/* Hover effect */
+.nav-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Icon sizes */
+.nav-btn svg {
+    font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .ts-navbar {
+        padding: 0 10px;
+    }
+    .nav-title {
+        font-size: 18px;
+    }
+    .nav-btn {
+        padding: 6px 10px;
+        font-size: 13px;
+        gap: 4px;
+    }
+    .nav-btn svg {
+        font-size: 14px;
+    }
+}
