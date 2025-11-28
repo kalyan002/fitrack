@@ -224,6 +224,7 @@ html,
   padding: 8px 0;
   /* allow page-level scroll so the Footer appears after the dashboard */
   overflow: visible;
+  background: linear-gradient(black,#063577);
 }
 
 /* top row: donut + chart */
@@ -231,10 +232,11 @@ html,
   display: flex;
   gap: 14px;
   margin-bottom: 14px;
+  background: linear-gradient(black,#063577);;
 }
 
 .card {
-  background:rgb(3, 76, 118);
+  background: linear-gradient(black,#063577);;
   border-radius: var(--radius);
   padding: 12px;
   box-shadow: 0 10px 30px var(--shadow);
