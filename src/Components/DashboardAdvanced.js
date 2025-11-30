@@ -7,6 +7,7 @@ import {
   FaAppleAlt,
   FaCalendarAlt,
   FaUserCircle,
+  FaSignOutAlt,
 } from "react-icons/fa";
 import {
   ResponsiveContainer,
@@ -21,6 +22,7 @@ import {
   Cell,
 } from "recharts";
 import "./DashboardAdvanced.css";
+import Footer from "./Footer";
 import workoutImg from "../assets/workout.jpeg";
 import dietImg from "../assets/diet.jpeg";
 import scheduleImg from "../assets/schedule.jpeg";
@@ -94,6 +96,13 @@ export default function DashboardAdvanced() {
   const dietCount = dietEntries.length;
   const scheduleCount = scheduleEntries.length;
 
+  const handleLogout = () => {
+    if (window.confirm("Are you sure you want to logout?")) {
+      localStorage.removeItem("user");
+      navigate("/");
+    }
+  };
+
   return (
     <>
       <div
@@ -144,7 +153,9 @@ export default function DashboardAdvanced() {
               Profile
             </button>
 
-
+            <button onClick={handleLogout} className="nav-btn logout-btn">
+              <FaSignOutAlt /> Logout
+            </button>
           </nav>
 
           <div className="sidebar-footer">
@@ -498,7 +509,8 @@ export default function DashboardAdvanced() {
         </main>
       
       </div>
-    
+      
+      <Footer />
     </>
   );
 }

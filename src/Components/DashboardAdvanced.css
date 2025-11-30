@@ -146,6 +146,7 @@ html,
   flex-direction: column;
   gap: 8px;
   margin-top: 6px;
+  flex-grow: 1;
 }
 
 .nav-btn {
@@ -160,6 +161,19 @@ html,
 
 .nav-btn:hover {
   background: #f3f6fb;
+}
+
+.nav-btn.logout-btn {
+  color: #ff4444;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-btn.logout-btn:hover {
+  background: rgba(255, 68, 68, 0.1);
+  color: #ff2222;
 }
 
 /* header (top) */

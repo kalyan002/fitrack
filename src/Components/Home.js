@@ -76,7 +76,7 @@ function Home() {
           <button onClick={() => handleScroll("goals")}>Goals</button>
           <button onClick={() => handleScroll("reviews")}>Reviews</button>
           <button onClick={() => handleScroll("feedback")}>Feedback</button>
-           <button onClick={() => handleScroll("feedback")}>Contact</button>
+          <button onClick={() => handleScroll("contact")}>Contact</button>
         </nav>
         <div className="nav-buttons">
           <button className="login-btn" onClick={() => navigate("/login")}>
@@ -334,6 +334,26 @@ function Home() {
           <textarea placeholder="Write your feedback..." required></textarea>
           <button type="submit">Submit Feedback</button>
         </form>
+      </section>
+
+      {/* CONTACT SECTION */}
+      <section id="contact" className="contact">
+        <h2 data-aos="fade-up">Contact Us</h2>
+        <div className="contact-content" data-aos="zoom-in">
+          <div className="contact-info">
+            <h3>Get in Touch</h3>
+            <p><strong>Email:</strong> support@fittrack.com</p>
+            <p><strong>Phone:</strong> +1 (800) 123-4567</p>
+            <p><strong>Address:</strong> 123 Fitness Ave, Health City, HC 12345</p>
+          </div>
+          <form className="contact-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <input type="text" placeholder="Subject" required />
+            <textarea placeholder="Write your message..." required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
       </section>
 
       {/* FOOTER */}
