@@ -22,17 +22,13 @@ import {
   Cell,
 } from "recharts";
 import "./DashboardAdvanced.css";
-import Footer from "./Footer";
 import workoutImg from "../assets/workout.jpeg";
 import dietImg from "../assets/diet.jpeg";
 import scheduleImg from "../assets/schedule.jpeg";
 import goalImg from "../assets/goal.jpeg";
 
-
 export default function DashboardAdvanced() {
   const navigate = useNavigate();
-
-  // FIX: sidebar closed by default
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Load entries
@@ -103,11 +99,17 @@ export default function DashboardAdvanced() {
     }
   };
 
+  // Scroll to footer function
+  const scrollToFooter = () => {
+    const footer = document.getElementById('site-footer');
+    if (footer) {
+      footer.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <>
-      <div
-        className={`adv-root ${sidebarOpen ? "sidebar-open" : "sidebar-closed"}`}
-      >
+    <div className="dashboard-wrapper">
+      <div className={`adv-root ${sidebarOpen ? "sidebar-open" : "sidebar-closed"}`}>
         {/* Backdrop - shown when sidebar is open; click to close */}
         {sidebarOpen && (
           <div
@@ -116,16 +118,14 @@ export default function DashboardAdvanced() {
             aria-hidden
           />
         )}
-        {/* ---------------------------------------------------- */}
+
         {/* SIDEBAR */}
-        {/* ---------------------------------------------------- */}
         <aside className={`adv-sidebar ${sidebarOpen ? "open" : ""}`}>
           <div className="sidebar-top">
             <div className="brand" onClick={() => navigate("/")}>
               FitTrack
             </div>
 
-            {/* CLOSE SIDEBAR BUTTON */}
             <button className="sidebar-close" onClick={() => setSidebarOpen(false)}>
               <FaTimes />
             </button>
@@ -163,12 +163,9 @@ export default function DashboardAdvanced() {
           </div>
         </aside>
 
-        {/* ---------------------------------------------------- */}
         {/* HEADER */}
-        {/* ---------------------------------------------------- */}
         <header className="adv-header">
           <div className="left">
-            {/* HAMBURGER BUTTON (OPEN SIDEBAR) */}
             <button className="hamburger" onClick={() => setSidebarOpen(true)}>
               <FaBars />
             </button>
@@ -192,36 +189,19 @@ export default function DashboardAdvanced() {
               <div className="pill-value">{scheduleCount}</div>
             </div>
 
-            <button className="btn" onClick={() => navigate("/workout/new")}>
-              Open
-            </button>
-
-            <button
-              className="nav-btn ghost"
-              onClick={() => {
-                const el = document.getElementById('site-footer');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
+            <button className="btn ghost" onClick={scrollToFooter}>
               Contact
             </button>
 
-            <button
-              className="nav-btn primary"
-              onClick={() => navigate("/workout/new")}
-            >
+            <button className="btn primary" onClick={() => navigate("/workout/new")}>
               New Workout
             </button>
           </div>
         </header>
 
-        {/* ---------------------------------------------------- */}
         {/* MAIN BODY */}
-        {/* ---------------------------------------------------- */}
         <main className="adv-main">
-          {/* ---------------------- */}
           {/* TOP ROW */}
-          {/* ---------------------- */}
           <section className="top-row">
             {/* Calories Donut Card */}
             <div
@@ -302,15 +282,11 @@ export default function DashboardAdvanced() {
                 </ResponsiveContainer>
               </div>
 
-              <div className="chart-caption">
-                Latest: {currentWeight} kg
-              </div>
+              <div className="chart-caption">Latest: {currentWeight} kg</div>
             </div>
           </section>
 
-          {/* ---------------------- */}
           {/* MIDDLE ROW */}
-          {/* ---------------------- */}
           <section className="middle-row">
             {/* Workout Card */}
             <div
@@ -319,7 +295,7 @@ export default function DashboardAdvanced() {
                 backgroundImage: `url(${workoutImg})`,
                 backgroundSize: "cover",
                 color: "#fff",
-                 fontWeight: "bold",
+                fontWeight: "bold",
               }}
             >
               <div className="card-head">
@@ -332,10 +308,7 @@ export default function DashboardAdvanced() {
                 <div className="text-light">Total sessions</div>
 
                 <div className="actions-row">
-                  <button
-                    className="btn"
-                    onClick={() => navigate("/totalsessions")}
-                  >
+                  <button className="btn" onClick={() => navigate("/totalsessions")}>
                     Open
                   </button>
                 </div>
@@ -349,7 +322,7 @@ export default function DashboardAdvanced() {
                 backgroundImage: `url(${dietImg})`,
                 backgroundSize: "cover",
                 color: "#fff",
-                 fontWeight: "bold",
+                fontWeight: "bold",
               }}
             >
               <div className="card-head">
@@ -388,17 +361,11 @@ export default function DashboardAdvanced() {
                 <div className="big-num">{scheduleCount}</div>
 
                 <div className="actions-row">
-                  <button
-                    className="btn"
-                    onClick={() => navigate("/workout/new#schedule")}
-                  >
+                  <button className="btn" onClick={() => navigate("/workout/new#schedule")}>
                     Add
                   </button>
 
-                  <button
-                    className="btn"
-                    onClick={() => navigate("/schedulepage")}
-                  >
+                  <button className="btn" onClick={() => navigate("/schedulepage")}>
                     Open
                   </button>
                 </div>
@@ -412,7 +379,7 @@ export default function DashboardAdvanced() {
                 backgroundImage: `url(${goalImg})`,
                 backgroundSize: "cover",
                 color: "#fff",
-                 fontWeight: "bold", 
+                fontWeight: "bold",
               }}
             >
               <div className="goal-head">
@@ -420,7 +387,6 @@ export default function DashboardAdvanced() {
                   <div className="muted">Goal</div>
                   <div className="goal-title">{goal.label}</div>
                 </div>
-
               </div>
 
               <div className="progress-wrap">
@@ -444,9 +410,7 @@ export default function DashboardAdvanced() {
             </div>
           </section>
 
-          {/* ---------------------- */}
           {/* BOTTOM ROW */}
-          {/* ---------------------- */}
           <section className="bottom-row">
             {/* Recent Activities */}
             <div className="card list-card">
@@ -495,7 +459,7 @@ export default function DashboardAdvanced() {
                       <div className="li-right">
                         <button
                           className="btn ghost"
-                          onClick={() => navigate("/schedule")}
+                          onClick={() => navigate("/schedulepage")}
                         >
                           Open
                         </button>
@@ -507,11 +471,8 @@ export default function DashboardAdvanced() {
             </div>
           </section>
         </main>
-      
       </div>
-      
-      <Footer />
-    </>
+
+    </div>
   );
 }
-

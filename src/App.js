@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Home from "./Components/Home";
 import Login from "./Components/Login";
@@ -11,7 +11,6 @@ import FoodDietPage from "./Components/FoodDietPage";
 import SchedulePage from "./Components/SchedulePage";
 import WorkoutPlayer from "./Components/WorkoutPlayer";
 import NewWorkout from "./Components/NewWorkout";
-import FooterPage from "./Components/FooterPage";
 
 function App() {
   return (
@@ -25,8 +24,7 @@ function App() {
       <Route path="/fooddietpage" element={<FoodDietPage />} />
       <Route path="/schedulepage" element={<SchedulePage />} />
       <Route path="/workoutplayer" element={<WorkoutPlayer />} />
-      <Route path="/workout/new" element={<NewWorkout />} />
-      <Route path="/footer" element={<FooterPage />} />
+      <Route path="/workout/new" element={<NewWorkout />} /> 
     </Routes>
 
   );

@@ -10,7 +10,6 @@
 
 * {
   box-sizing: border-box;
-  padding: 0%;
 }
 
 body,
@@ -18,33 +17,35 @@ html,
 #root {
   height: 100%;
   margin: 0;
+  padding: 0;
+}
+
+/* WRAPPER - Contains everything including footer */
+.dashboard-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #ECEEDF, #f2f7ff);
 }
 
 /* root container */
 .adv-root {
   display: grid;
-  /* Desktop layout: sidebar column + main column (sidebar pushes content) */
   grid-template-columns: 260px 1fr;
   grid-template-rows: auto 1fr;
-  /* allow the page to grow beyond viewport so the footer appears after the dashboard */
-
+  flex: 1;
   background: var(--bg);
-
-  padding: 16px 16px 16px 0px;
   transition: all .22s ease;
 }
 
 /* when sidebar closed, collapse */
-/* when closed we still keep a single column so content doesn't get pushed */
 .adv-root.sidebar-closed {
   grid-template-columns: 0px 1fr;
   padding-left: 0;
-  
 }
 
 /* Sidebar */
 .adv-sidebar {
-  /* sidebar content styling only — actual positioning is handled by the fixed rules at the bottom */
   background: var(--card);
   border-radius: var(--radius);
   padding: 14px;
@@ -52,10 +53,20 @@ html,
   display: flex;
   flex-direction: column;
   gap: 12px;
-  overflow: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
 }
 
-/* Backdrop that appears behind sidebar when open (but above main content) */
+/* Backdrop that appears behind sidebar when open */
 .adv-backdrop {
   position: fixed;
   left: 0;
@@ -72,17 +83,20 @@ html,
 .sidebar-open .adv-backdrop {
   opacity: 1;
   pointer-events: auto;
-  color: white;
+}
+
+/* Show sidebar when open */
+.sidebar-open .adv-sidebar {
+  transform: translateX(0);
 }
 
 /* translucent/glass sidebar so dashboard remains visible behind it */
 .adv-sidebar.open {
-  background: linear-gradient(black,rgb(6, 75, 115));
+  background: linear-gradient(black, rgb(6, 75, 115));
   backdrop-filter: blur(6px) saturate(110%);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
   border-radius: 0 12px 12px 0;
   color: white;
-  /* match rounded look but don't clip */
 }
 
 .sidebar-top {
@@ -178,68 +192,87 @@ html,
 
 /* header (top) */
 .adv-header {
-  /* header sits in the main/right column when using the two-column layout */
   grid-column: 2 / 3;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 8px 10px;
+  padding: 14px 22px;
+  background: #1d1d1d;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
 .adv-header .left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .hamburger {
   background: transparent;
   border: none;
-  font-size: 18px;
+  color: white;
+  font-size: 22px;
   cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.hamburger:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .page-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
   margin: 0;
-  font-size: 18px;
-  color: #0f1724;
 }
 
 .adv-header .right {
   display: flex;
-  gap: 8px;
+  align-items: center;
+  gap: 14px;
 }
 
 .summary-pill {
-  background: var(--card);
-  padding: 8px 10px;
+  background: #2a2a2a;
+  padding: 8px 14px;
   border-radius: 10px;
-  box-shadow: 0 6px 18px var(--shadow);
   display: flex;
-  gap: 8px;
-  align-items: center;
-  min-width: 96px;
+  flex-direction: column;
+  text-align: center;
+  min-width: 70px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.summary-pill:hover {
+  background: #333;
+  transform: translateY(-3px);
 }
 
 .pill-title {
   font-size: 12px;
-  color: var(--muted);
+  color: #aaa;
 }
 
 .pill-value {
-  font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
 }
 
 /* main content */
 .adv-main {
-  /* main content sits in the right/main column */
   grid-column: 2 / 3;
-  padding: 8px 0;
-  /* allow page-level scroll so the Footer appears after the dashboard */
-  overflow: visible;
-  background: linear-gradient(black,#063577);
+  padding: 8px 16px;
+  overflow-y: auto;
+  background: linear-gradient(black, #063577);
 }
 
 /* top row: donut + chart */
@@ -247,14 +280,21 @@ html,
   display: flex;
   gap: 14px;
   margin-bottom: 14px;
-  background: linear-gradient(black,#063577);;
 }
 
 .card {
-  background: linear-gradient(black,#063577);;
-  border-radius: var(--radius);
-  padding: 12px;
-  box-shadow: 0 10px 30px var(--shadow);
+  background: #08299f;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(76, 175, 80, 0.6);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 12px rgba(76, 175, 80, 0.25);
+  background: #252525;
 }
 
 .donut-card {
@@ -335,6 +375,11 @@ html,
   gap: 10px;
 }
 
+.goal-card:hover {
+  border-color: #ffcc00;
+  box-shadow: 0 12px 32px rgba(255, 204, 0, 0.25);
+}
+
 /* small card content */
 .card-head {
   display: flex;
@@ -363,6 +408,10 @@ html,
   font-size: 13px;
 }
 
+.text-light {
+  color: #ccc;
+}
+
 .actions-row {
   margin-top: auto;
   display: flex;
@@ -376,12 +425,28 @@ html,
   padding: 8px 10px;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
 }
 
 .btn.ghost {
   background: transparent;
   border: 1px solid #eef2ff;
   color: var(--accent);
+}
+
+.btn.primary {
+  background: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.btn.primary:hover {
+  background: #45a047;
+  transform: translateY(-2px);
 }
 
 /* goal progress */
@@ -420,6 +485,15 @@ html,
   gap: 8px;
 }
 
+.goal-title {
+  font-weight: 600;
+}
+
+.goal-caption {
+  font-size: 13px;
+  color: #ccc;
+}
+
 /* bottom row lists */
 .bottom-row {
   display: flex;
@@ -430,6 +504,11 @@ html,
 .list-card {
   flex: 1;
   min-height: 160px;
+}
+
+.list-card:hover {
+  border-color: rgba(252, 0, 0, 0.12);
+  background: #222;
 }
 
 .list {
@@ -466,13 +545,13 @@ html,
   color: var(--muted);
 }
 
+.small {
+  font-size: 12px;
+}
+
 /* responsive */
 @media (max-width: 1100px) {
   .adv-root {
-    grid-template-columns: 1fr;
-  }
-
-  .adv-root.sidebar-open {
     grid-template-columns: 1fr;
   }
 
@@ -511,248 +590,10 @@ html,
   }
 
   .adv-sidebar {
-    display: none;
+    width: 260px;
   }
 
-  .adv-root.sidebar-open .adv-sidebar {
-    display: block;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 40;
-  }
-
-  /* show title in navbar when overlay sidebar is open on mobile */
   .adv-root.sidebar-open .page-title {
     display: block;
   }
-
-  /* overlay mode: make header/main keep full width while sidebar sits above */
-  .adv-root.sidebar-open .adv-main,
-  .adv-root.sidebar-open .adv-header {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    width: 100%;
-  }
-
-  /* show backdrop when overlay sidebar is open */
-  .adv-root.sidebar-open .adv-backdrop {
-    opacity: 1;
-    pointer-events: auto;
-  }
 }
-
-/* default sidebar width */
-/* Sidebar styles are defined below (fixed overlay) */
-
-/* when CLOSED — move fully left out of screen */
-/* NOTE: main/header are not shifted anymore. The sidebar overlays the page when open. */
-/* --- Card Base Styles --- */
-.card {
-  background: #08299f;
-  border-radius: 12px;
-  padding: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease,
-    background 0.25s ease;
-}
-
-/* --- Hover Effect --- */
-.card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(76, 175, 80, 0.6);
-  /* green glow accent */
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35),
-    0 0 12px rgba(76, 175, 80, 0.25);
-  background: #252525;
-}
-
-/* --- Stronger effect for goal card (optional) --- */
-.goal-card:hover {
-  border-color: #ffcc00;
-  box-shadow: 0 12px 32px rgba(255, 204, 0, 0.25);
-}
-
-/* --- List card subtle hover (optional, looks nice) --- */
-.list-card:hover {
-  border-color: rgba(252, 0, 0, 0.12);
-  background: #222;
-}
-
-
-/* NAVBAR BASE */
-.adv-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 22px;
-  background: #1d1d1d;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  position: sticky;
-  top: 0;
-  z-index: 20;
-}
-
-/* LEFT SECTION */
-.adv-header .left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  
-}
-
-.hamburger {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: background 0.2s ease;
-}
-
-.hamburger:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.page-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: white;
-}
-
-/* RIGHT SECTION */
-.adv-header .right {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-/* SUMMARY PILLS */
-.summary-pill {
-  background: #2a2a2a;
-  padding: 8px 14px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  min-width: 70px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.summary-pill:hover {
-  background: #333;
-  transform: translateY(-3px);
-}
-
-.pill-title {
-  font-size: 12px;
-  color: #aaa;
-}
-
-.pill-value {
-  font-size: 18px;
-  font-weight: 600;
-  color: #fff;
-}
-
-/* NAVBAR BUTTONS */
-.nav-btn {
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.25s ease, transform 0.25s ease;
-  border: 1px solid transparent;
-}
-
-/* Primary button */
-.nav-btn.primary {
-  background: #4caf50;
-  color: white;
-  border-color: #4caf50;
-}
-
-.nav-btn.primary:hover {
-  background: #45a047;
-  transform: translateY(-2px);
-}
-
-/* Ghost / minimal button */
-.nav-btn.ghost {
-  background: transparent;
-  color: #ddd;
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.nav-btn.ghost:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-2px);
-}
-
-/* ROOT BACKGROUND */
-.adv-root {
-  background: linear-gradient(135deg, #ECEEDF, );
-  min-height: 100vh;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  background-attachment: fixed;
-  /* smooth scrolling effect */
-  background-size: cover;
-}
-
-.adv-sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 260px;
-  height: 100vh;
-  background: #ffffff;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-  z-index: 999;
-}
-
-/* SHOW Sidebar */
-.sidebar-open .adv-sidebar {
-  transform: translateX(0);
-}
-
-
-/* Make sure header/main don't get pushed or keep left spacing when sidebar opens */
-/* NOTE: header/main push behaviour is handled by the grid on wide screens; overlay-only rules are applied in the mobile media query. */
-
-/* Remove default browser padding/margins */
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden; /* prevent scrolling gaps */
-}
-
-/* Make entire dashboard fill the screen */
-.adv-root {
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-/* Make main content stretch fully */
-.adv-main {
-  height: calc(100vh - 70px); /* adjust based on header height */
-  overflow-y: auto; /* stay scrollable inside */
-  padding: 0; /* remove unwanted gaps */
-}
-

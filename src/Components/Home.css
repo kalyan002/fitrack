@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-margin-top: 120px;
+  scroll-margin-top: 80px;
 }
 
 html {
@@ -16,13 +16,7 @@ body {
   background-color: #000;
   color: #fff;
   overflow-x: hidden;
-}
-
-.landing-container {
-  width: 100%;
-  background-color: #000;
-  color: #fff;
-  padding-top: 70px;
+  display: contents;
 }
 
 /* === NAVBAR === */
@@ -38,7 +32,6 @@ body {
   padding: 18px 40px;
   z-index: 100;
   border-bottom: 2px solid #2d75a5;
-  box-sizing: border-box;
 }
 
 .logo {
@@ -110,8 +103,8 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  scroll-margin-top: 120px;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+  padding-top: 70px;
+  background: url("https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
   background-attachment: fixed;
 }
 
@@ -122,22 +115,22 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
-  scroll-margin-top: 120px;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 700px;
   padding: 20px;
-  scroll-margin-top: 120px;
+  pointer-events: auto;
 }
 
 .hero-content h1 {
   font-size: 3.5rem;
   color: #2d75a5;
   margin-bottom: 20px;
-  scroll-margin-top: 120px;
 }
 
 .hero-content p {
@@ -145,7 +138,6 @@ body {
   color: #f2f2f2;
   line-height: 1.7;
   margin-bottom: 30px;
-  scroll-margin-top: 120px;
 }
 
 .hero-btn {
@@ -169,14 +161,12 @@ body {
   background: #111;
   padding: 100px 20px;
   text-align: center;
-  scroll-margin-top: 120px;
 }
 
 .features h2 {
   color: #2d75a5;
   margin-bottom: 50px;
   font-size: 2.3rem;
-  scroll-margin-top: 120px;
 }
 
 .feature-grid {
@@ -185,7 +175,6 @@ body {
   gap: 30px;
   max-width: 1000px;
   margin: auto;
-  scroll-margin-top: 120px;
 }
 
 .feature-card {
@@ -213,14 +202,12 @@ body {
   text-align: center;
   scroll-padding-top: 100px;
   display: contents;
-  scroll-margin-top: 120px;
 }
 
 .goals h2 {
   font-size: 2.2rem;
   color: #2d75a5;
   margin-bottom: 20px;
-  scroll-margin-top: 120px;
 }
 
 .goals p {
@@ -229,7 +216,6 @@ body {
   font-size: 1.1rem;
   line-height: 1.8;
   color: #ccc;
-  scroll-margin-top: 120px;
 }
 
 .goal-btn {
@@ -242,11 +228,68 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
-  scroll-margin-top: 120px;
 }
 
 .goal-btn:hover {
   background: #1DBF73;
+}
+
+/* === CONTACT === */
+.contact {
+  background: #111;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.contact h2 {
+  color: #0b0b0bff;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+/* === FLOATING BUTTON === */
+.floating-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #111112;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0px 4px 10px rgba(229, 9, 20, 0.5);
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 200;
+}
+
+.floating-btn:hover {
+  transform: scale(1.1);
+  background: #1DBF73;
+}
+
+/* === FOOTER === */
+.footer {
+  background: #000;
+  color: #888;
+  text-align: center;
+  padding:  0;
+  border-top: 2px solid #2d75a5;
+}
+
+.footer .footer-link {
+  background: none;
+  border: none;
+  color: #070707;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 600;
 }
 
 /* === CONTACT === */
@@ -330,59 +373,6 @@ body {
   background: #1DBF73;
 }
 
-@media (max-width: 768px) {
-  .contact-content {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* === FLOATING BUTTON === */
-.floating-btn {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: #111112;
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  padding: 14px 25px;
-  font-weight: 600;
-  font-size: 1rem;
-  box-shadow: 0px 4px 10px rgba(229, 9, 20, 0.5);
-  cursor: pointer;
-  transition: all 0.3s;
-  z-index: 200;
-}
-
-.floating-btn:hover {
-  transform: scale(1.1);
-  background: #1DBF73;
-}
-
-/* === FOOTER === */
-.footer {
-  background: #000;
-  color: #888;
-  text-align: center;
-  padding: 30px 20px;
-  border-top: 2px solid #2d75a5;
-  width: 100%;
-}
-
-.footer .footer-link {
-  background: none;
-  border: none;
-  color: #2d75a5;
-  cursor: pointer;
-  text-decoration: underline;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.footer .footer-link:hover {
-  color: #57a0ff;
-}
-
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
   .navbar {
@@ -413,14 +403,12 @@ body {
   background: #111;
   padding: 100px 20px;
   text-align: center;
-  scroll-margin-top: 120px;
 }
 
 .trainers h2 {
   color: #2d75a5;
   font-size: 2.3rem;
   margin-bottom: 40px;
-  scroll-margin-top: 120px;
 }
 
 .trainer-grid {
@@ -429,7 +417,6 @@ body {
   gap: 25px;
   max-width: 1000px;
   margin: auto;
-  scroll-margin-top: 120px;
 }
 
 .trainer-card {
@@ -571,7 +558,6 @@ body {
   color: #fff;
   padding: 60px 0;
   text-align: center;
-  scroll-margin-top: 120px;
 }
 
 .goals-grid {
@@ -608,14 +594,12 @@ body {
   border-radius: 10px;
   margin-top: 10px;
   overflow: hidden;
-  scroll-margin-top: 120px;
 }
 
 .goal-progress {
   background: #00ff88;
   height: 100%;
   border-radius: 10px;
-  scroll-margin-top: 120px;
 }
 
 .achievements {

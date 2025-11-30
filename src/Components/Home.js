@@ -35,8 +35,12 @@ function Home() {
   const navigate = useNavigate();
 
   const handleScroll = (id) => {
-    const section = document.getElementById(id);
-    if (section) section.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 50);
   };
 
   // Sample Data
