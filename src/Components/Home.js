@@ -76,6 +76,7 @@ function Home() {
           <button onClick={() => handleScroll("goals")}>Goals</button>
           <button onClick={() => handleScroll("reviews")}>Reviews</button>
           <button onClick={() => handleScroll("feedback")}>Feedback</button>
+           <button onClick={() => handleScroll("feedback")}>Contact</button>
         </nav>
         <div className="nav-buttons">
           <button className="login-btn" onClick={() => navigate("/login")}>
@@ -84,6 +85,7 @@ function Home() {
           <button className="signup-btn" onClick={() => navigate("/signup")}>
             Signup
           </button>
+           
         </div>
       </header>
 
