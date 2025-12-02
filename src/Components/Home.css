@@ -643,3 +643,9 @@ body {
 .bronze {
   color: #cd7f32;
 }
+.navbar .logo img,
+.nav-logo {
+  height: 120px;      /* adjust size */
+  width: 300px;
+  object-fit: contain;
+}

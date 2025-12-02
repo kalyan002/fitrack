@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import Footer from './Footer';
 import "./Home.css";
+import logo from "../assets/logo.png";
+
+
 import {
   FaDumbbell,
   FaHeartbeat,
@@ -66,13 +69,14 @@ function Home() {
     <div className="landing-container">
       {/* NAVBA */}
       <header className="navbar">
-        <div
-          className="logo"
-          onClick={() => handleScroll("hero")}
-          style={{ cursor: "pointer" }}
-        >
-          FitTrack
-        </div>
+       <div
+  className="logo"
+  onClick={() => handleScroll("hero")}
+  style={{ cursor: "pointer" }}
+>
+  <img src={logo} alt="FitTrack Logo" className="nav-logo" />
+</div>
+
         <nav>
           <button onClick={() => handleScroll("features")}>Features</button>
           <button onClick={() => handleScroll("trainers")}>Trainers</button>
