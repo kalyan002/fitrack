@@ -189,10 +189,6 @@ export default function DashboardAdvanced() {
               <div className="pill-value">{scheduleCount}</div>
             </div>
 
-            <button className="btn ghost" onClick={scrollToFooter}>
-              Contact
-            </button>
-
             <button className="btn primary" onClick={() => navigate("/workout/new")}>
               New Workout
             </button>

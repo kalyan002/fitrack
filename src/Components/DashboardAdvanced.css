@@ -549,51 +549,115 @@ html,
   font-size: 12px;
 }
 
-/* responsive */
+/* responsive - improved for tablets and mobile */
 @media (max-width: 1100px) {
   .adv-root {
     grid-template-columns: 1fr;
   }
 
-  .top-row {
-    flex-direction: column;
-  }
-
-  .middle-row {
-    flex-direction: column;
-  }
-
+  /* Stack rows vertically so cards are full width */
+  .top-row,
+  .middle-row,
   .bottom-row {
     flex-direction: column;
   }
 
-  .donut-card {
+  /* Make all cards span full width when stacked */
+  .donut-card,
+  .chart-card,
+  .small-card,
+  .goal-card,
+  .list-card {
+    flex: none;
     width: 100%;
   }
 
-  .chart-card {
-    width: 100%;
+  .card {
+    padding: 12px;
   }
-}
 
-@media (max-width: 700px) {
-  .adv-root {
-    padding: 10px;
+  /* Allow header right side to wrap when space is constrained */
+  .adv-header .right {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .summary-pill {
+    min-width: 56px;
+    padding: 6px 10px;
   }
 
   .donut-wrap {
     height: 140px;
   }
+}
 
+@media (max-width: 600px) {
+  .adv-root {
+    padding: 8px;
+  }
+
+  .adv-header {
+    padding: 8px 12px;
+  }
+
+  /* Hide large title to save space on small phones */
   .page-title {
     display: none;
   }
 
-  .adv-sidebar {
-    width: 260px;
+  .hamburger {
+    font-size: 20px;
   }
 
-  .adv-root.sidebar-open .page-title {
-    display: block;
+  /* Make action buttons wrap and become easier to tap */
+  .actions-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .actions-row .btn {
+    flex: 1 1 48%;
+    min-width: 44%;
+  }
+
+  .btn,
+  .btn.primary {
+    padding: 8px 10px;
+  }
+
+  .card {
+    border-radius: 10px;
+    padding: 12px;
+  }
+
+  .big-num {
+    font-size: 20px;
+  }
+
+  .donut-value {
+    font-size: 16px;
+  }
+
+  /* Make list rows stack vertically for better readability */
+  .list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .li-right {
+    align-self: flex-end;
+  }
+
+  /* Sidebar should be an overlay and narrower on phones */
+  .adv-sidebar {
+    width: 80%;
+    max-width: 320px;
+  }
+
+  /* Ensure donut stays usable on very small screens */
+  .donut-wrap {
+    height: 120px;
   }
 }

@@ -102,11 +102,7 @@ function Home() {
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <h1 data-aos="fade-up">Train Smarter. Live Healthier.</h1>
-          <p data-aos="fade-up" data-aos-delay="200">
-            FitTrack connects you with professional trainers, personalized
-            workout plans, nutrition tracking, and progress analytics — all in one
-            platform.
-          </p>
+          
           <div className="hero-buttons">
             {/* Start button now redirects to login */}
             <button
