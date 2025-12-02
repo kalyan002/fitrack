@@ -78,6 +78,7 @@ function Home() {
 </div>
 
         <nav>
+          <button onClick={() => handleScroll("hero")}>Home</button>
           <button onClick={() => handleScroll("features")}>Features</button>
           <button onClick={() => handleScroll("trainers")}>Trainers</button>
           <button onClick={() => handleScroll("progress")}>Progress</button>
